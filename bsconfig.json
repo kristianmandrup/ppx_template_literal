@@ -1,0 +1,19 @@
+{
+  "name": "template-literal-ppx",
+  "version": "0.1.0",
+  "sources": {
+    "dir": "src",
+    "subdirs": true
+  },
+  "package-specs": {
+    "module": "commonjs",
+    "in-source": true
+  },
+  "suffix": ".bs.js",
+  "ppx-flags": ["ppx_template_literal/ppx"],
+  "bs-dependencies": [],
+  "warnings": {
+    "error": "+101"
+  },
+  "refmt": 3
+}
