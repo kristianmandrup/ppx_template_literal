@@ -31,7 +31,7 @@ export const html = (strings: TemplateStringsArray, ...values: any[]) =>
 
 Bindings to [html function](https://github.com/Polymer/lit-html/blob/master/src/lit-html.ts#L54) of [lit-html](https://github.com/Polymer/lit-html)
 
-```js
+```txt
 [@bs.module "lit-html"] external html2: (array(string), 'a, 'b) => someAbstractType = "html";
 [@bs.module "lit-html"] external html3: (array(string), 'a, 'b, 'c) => someAbstractType = "html";
 ```
