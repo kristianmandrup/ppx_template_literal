@@ -9,6 +9,49 @@ Specifically designed to make it easier to do [lit-html](https://lit-html.polyme
 - [AST helper](https://caml.inria.fr/pub/docs/manual-ocaml/libref/Ast_helper.html)
 - [AST iterator](https://caml.inria.fr/pub/docs/manual-ocaml/libref/Ast_iterator.html)
 
+The recent `reason-vscode` release [supports viewing the AST of the ppx under development](https://twitter.com/jaredforsyth/status/1085947362692890625)
+
+[html function](https://github.com/Polymer/lit-html/blob/master/src/lit-html.ts#L54)
+
+```js
+/**
+ * Interprets a template literal as an HTML template that can efficiently
+ * render to and update a container.
+ */
+export const html = (strings: TemplateStringsArray, ...values: any[]) =>
+  new TemplateResult(strings, values, "html", defaultTemplateProcessor);
+```
+
+- [Intro to Template Literals](https://flaviocopes.com/javascript-template-literals/)
+- [MDN Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+- [Google: ES6 Template Strings](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings)
+- [CSS Tricks: Template Literals](https://css-tricks.com/template-literals/)
+
+## Goal of ppx
+
+Bindings to [html function](https://github.com/Polymer/lit-html/blob/master/src/lit-html.ts#L54) of [lit-html](https://github.com/Polymer/lit-html)
+
+```js
+[@bs.module "lit-html"] external html2: (array(string), 'a, 'b) => someAbstractType = "html";
+[@bs.module "lit-html"] external html3: (array(string), 'a, 'b, 'c) => someAbstractType = "html";
+```
+
+Input:
+
+```js
+[%html"<div>${name} - ${age} </div>"]`
+```
+
+Output:
+
+```js
+html2(
+  [|"<div>", " - ", " </div>" |],
+  name,
+  age
+)
+```
+
 ## Status
 
 WIP: not even started!
