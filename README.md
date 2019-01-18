@@ -52,6 +52,8 @@ html2(
 )
 ```
 
+When done, this ppx can be used with [bs-lit-html](https://github.com/kristianmandrup/bs-lit-html#usage) to write `lit-html` apps.
+
 ## Status
 
 WIP: not even started!
