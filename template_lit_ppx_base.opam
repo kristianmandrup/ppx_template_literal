@@ -1,0 +1,23 @@
+opam-version: "1.2"
+name: "template_lit_ppx_base"
+version: "0.0.4"
+maintainer: "Magnus Hallin <kmandrup@gmail.com>"
+authors: "Magnus Hallin <kmandrup@gmail.com>"
+homepage: "https://github.com/kristianmandrup/template_lit_ppx"
+bug-reports: "https://github.com/kristianmandrup/template_lit_ppx/issues"
+description: "Shared internal library for template_lit_ppx."
+license: "BSD 3-clause"
+dev-repo: "git@github.com:kristianmandrup/template_lit_ppx.git"
+tags: ["bucklescript" "reasonml" "ppx" "template_lit"]
+build: [
+  [make "build"]
+]
+available: [ocaml-version >= "4.02.3"]
+depends: [
+  "ocaml-migrate-parsetree" {build}
+  "result" {build}
+  "yojson" {build}
+  "ppx_tools_versioned" {build}
+  "dune" {build}
+  "cppo" {build}
+]
