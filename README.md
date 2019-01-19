@@ -64,6 +64,10 @@ WIP: not even started!
 - [Simple ppx tutorial](https://github.com/jccampagne/ocaml_ppx_extension_simple_tutorial)
 - [A Guide to Extension Points in OCaml](https://whitequark.org/blog/2014/04/16/a-guide-to-extension-points-in-ocaml/)
 
+### Examples
+
+- [graphql_ppx](https://github.com/mhallin/graphql_ppx/blob/master/README.md)
+
 ## Building ppx binary
 
 If you want to build ReasonML files, you need to pass it through a preprocessor with the `pp` flag.
@@ -78,6 +82,26 @@ We need the OCaml Common modules available.
 -I searches for dependencies and the '+' makes it relative to the OCaml directory
 \*/
 ocamlc -pp “refmt — print binary” -o ppx -I +compiler-libs ocamlcommon.cma -impl ppx_test.re
+
+## Custom JSX target
+
+Reason JSX works is by doing an AST transform. so e.g. transform
+
+```js
+<a href="#foo">{bar}</foo>
+```
+
+to the following:
+
+```js
+ReactDOMRe.createElement("a", ~props=ReactDOMRe.props(~href="#foo", ()), [|bar|])
+```
+
+A similar transform for capitalized elements like `<MyComponent/>`.
+
+Define the `ReactDOMRe` and `ReasonReact` modules, with the expected functions and correct type signatures. Then JSX will 'just work'.
+
+More details at [reason-react jsx](https://reasonml.github.io/reason-react/docs/en/jsx)
 
 # Build
 
